@@ -17,6 +17,7 @@ class Trabajador(Persona):
         Persona.presentation(self)
         print(f"Mi departamento es {self.departamento} y mi puesto es {self.puesto}")
 
+# self.nombre hace referencia al atributo 'nombre' de la clase 'Persona', mientras que 'nombre' es una variable creada por nosotros
 nombre = 'Alberto'
 persona_1 = Persona(nombre, 20)
 persona_1.presentation()
