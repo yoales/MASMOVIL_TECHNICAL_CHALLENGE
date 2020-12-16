@@ -25,3 +25,7 @@ persona_1.presentation()
 nombre = 'Alejandro'
 trabajador_1 = Trabajador(nombre, 30)
 trabajador_1.presentation()
+
+my_var_list = ['Andrea', '42', 'Ventas', 'Manager']
+trabajador_2 = Trabajador(*my_var_list)
+trabajador_2.presentation()
