@@ -68,3 +68,7 @@ def days_between(d1, d2):
 
 with dag:
     timeDiff_task = TimeDiff(task_id='timeDiff_task', diff_date='2020-12-10')
+
+# Una conexión almacena información que permite el acceso a un sistema (ej: hostname, port, login, pass, etc.)
+# Un hook es una interfaz a una plataforma externa, utilizando una conexión para obtener información de la plataforma a la que se desea establecer la conexión
+# Gracias a los hook podemos abstraer los detalles de autenticación y de conexión a otras plataformas fuera de los pipelines
