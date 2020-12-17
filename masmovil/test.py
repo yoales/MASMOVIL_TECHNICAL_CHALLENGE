@@ -16,3 +16,15 @@ dag = DAG(
     description='MASMOVIL_TECHNICAL_CHALLENGE DAG',
     schedule_interval='0 3 * * *',
 )
+
+start = DummyOperator(
+    task_id='start',
+    dag=dag,
+)
+
+end = DummyOperator(
+    task_id='end',
+    dag=dag,
+)
+
+start >> end
