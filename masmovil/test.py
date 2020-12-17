@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.operators.dummy_operator import DummyOperator
+from time_diff import TimeDiff
 
 default_args = {
     'owner': 'airflow',
@@ -60,6 +61,10 @@ def getDependList(l_odd, l_even):
         l_odd.remove(l_odd[0])
         return getDependList(l_odd, l_even) << task
 
-n_task = 5
-lTask = getTasks(n_task)
-getDependList(getOddTasks(lTask), getEvenTasks(lTask))
+def days_between(d1, d2):
+    d1 = datetime.strptime(d1, "%Y-%m-%d")
+    d2 = datetime.strptime(d2, "%Y-%m-%d")
+    return abs((d2 - d1).days)
+
+with dag:
+    timeDiff_task = TimeDiff(task_id='timeDiff_task', diff_date='2020-12-10')
